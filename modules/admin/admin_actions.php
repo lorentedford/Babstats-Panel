@@ -114,7 +114,7 @@ if($_POST['reset_plyrmap_stats']) {
 if($_POST['set_plyr_alias']) {
   $sql = DBQuery("SELECT * FROM $players_table WHERE id = '$id'");
   $row = DBFetchArray($sql);
-  $sql2 = DBQuery("INSERT INTO $aliases_table VALUES ('', '".htmlspecialchars(base64_encode($new_alias))."', '".$row["name"]."')");
+  $sql2 = DBQuery("INSERT INTO $aliases_table VALUES (NULL, '".htmlspecialchars(base64_encode($new_alias))."', '".$row["name"]."')");
 }
 
 if($_POST['set_plyr_squad']) {
@@ -159,7 +159,7 @@ if($_POST['reset_squads']) {
 
 if($_POST['add_squad']) {
   
-  $sql = DBQuery("INSERT INTO `$squads_table` (`id`, `name`, `tag`, `url`) VALUES ('', '$sqname', '$tag', '$url')");
+  $sql = DBQuery("INSERT INTO `$squads_table` (`id`, `name`, `tag`, `url`) VALUES (NULL, '$sqname', '$tag', '$url')");
 }
 
 if($_POST['edit_squad']) {
@@ -288,7 +288,7 @@ if($_POST['edit_selected_servers']) {
 }
 
 if($_POST['add_server']) {
-  $sql = DBQuery("INSERT INTO $servers_table VALUES ('', '$add_name', '$add_serverid', '', '', '', '', '', '', '', '', '', '', '', '', '', '')");
+  $sql = DBQuery("INSERT INTO $servers_table VALUES (NULL, '$add_name', '$add_serverid', '', '', '', '', '', '', '', '', '', '', '', '', '', '')");
 }
 /* END OF SERVERS ADMIN FUNCTIONS*/
 
@@ -328,7 +328,7 @@ if($_POST['update_awards']) {
 }
 
 if($_POST['add_award']) {
-  $sql = DBQuery("INSERT INTO $awards_table VALUES ('', '$new_name', '$new_image', '$new_field', '$new_value', '$new_description', 'A')");
+  $sql = DBQuery("INSERT INTO $awards_table VALUES (NULL, '$new_name', '$new_image', '$new_field', '$new_value', '$new_description', 'A')");
 }
 /* END OF AWARD ADMIN FUNCTIONS*/
 
@@ -387,14 +387,14 @@ if($_POST['update_wpnawards']) {
 }
 
 if($_POST['add_wpnaward']) {
-  $sql = DBQuery("INSERT INTO $awards_table VALUES ('', '$new_name', '$new_image', '$new_field', '$new_value', '$new_description', 'W')");
+  $sql = DBQuery("INSERT INTO $awards_table VALUES (NULL, '$new_name', '$new_image', '$new_field', '$new_value', '$new_description', 'W')");
 }
 /* END OF WEAPON AWARD ADMIN FUNCTIONS*/
 
 
 /* START OF RANKS ADMIN FUNCTIONS */
 if($_POST['add_rank']) {
-  $sql = DBQuery("INSERT INTO $ranks_table VALUES ('', '$add_name', '$add_image', '$add_thumbnail', '$add_rating')");
+  $sql = DBQuery("INSERT INTO $ranks_table VALUES (NULL, '$add_name', '$add_image', '$add_thumbnail', '$add_rating')");
 }
 
 if($_POST['select_ranks']) {
