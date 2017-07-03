@@ -37,24 +37,24 @@ MakeTableNames();
 echo "Neos.Chronos 2.0.0 Installation<br><br>\n";
 
 DBQuery("CREATE TABLE $aliases_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  from_name varchar(64) NOT NULL default '',
-  to_name varchar(64) NOT NULL default '',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `from_name` varchar(64) NOT NULL DEFAULT '',
+  `to_name` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$aliases_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $awards_table (
-  id bigint(20) NOT NULL auto_increment,
-  name varchar(64) NOT NULL default '',
-  image varchar(64) NOT NULL default '',
-  field varchar(64) NOT NULL default '0',
-  value bigint(20) NOT NULL default '0',
-  description text NOT NULL,
-  type enum('A','W') NOT NULL default 'A',
-  KEY id (id)
-);");
+  `id` bigint(20) NOT NULL,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `image` varchar(64) NOT NULL DEFAULT '',
+  `field` varchar(64) NOT NULL DEFAULT '0',
+  `value` bigint(20) NOT NULL DEFAULT '0',
+  `description` text NOT NULL,
+  `type` enum('A','W') NOT NULL DEFAULT 'A'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 DBquery("INSERT INTO $awards_table VALUES (1, 'Army Commendation Medal', 'awards/armycom1.gif', 'time_played', 600, 'Given for 10 minutes of playing', 'A');");
 DBquery("INSERT INTO $awards_table VALUES (2, 'Army Commendation Medal with 1 bronze Oak leaf Cluster', 'awards/armycom2.gif', 'time_played', 3600, 'Given for 1 hour of playing', 'A');");
@@ -134,104 +134,106 @@ DBquery("INSERT INTO $awards_table VALUES (74, 'Claymore Award', 'awards/clay.gi
 echo "Table '$awards_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE `$hof_table` (
-  games_type enum('P','W') NOT NULL default 'P',
-  team_games bigint(20) NOT NULL default '0',
-  rating_pts bigint(20) NOT NULL default '0',
-  time_played bigint(20) NOT NULL default '0',
-  awards bigint(20) NOT NULL default '0',
-  wpn_awards bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0'
-);");
+  `games_type` enum('P','W') NOT NULL DEFAULT 'P',
+  `team_games` bigint(20) NOT NULL DEFAULT '0',
+  `rating_pts` bigint(20) NOT NULL DEFAULT '0',
+  `time_played` bigint(20) NOT NULL DEFAULT '0',
+  `awards` bigint(20) NOT NULL DEFAULT '0',
+  `wpn_awards` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$hof_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $log_table (
-  server bigint(20) NOT NULL default '0',
-  datetime datetime NOT NULL default '0000-00-00 00:00:00'
-);");
+  `server` bigint(20) NOT NULL DEFAULT '0',
+  `datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$log_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $mapstats_m_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  record bigint(20) NOT NULL default '0',
-  map bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0',
-  deaths bigint(20) NOT NULL default '0',
-  score bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `record` bigint(20) NOT NULL DEFAULT '0',
+  `map` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `deaths` bigint(20) NOT NULL DEFAULT '0',
+  `score` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$mapstats_m_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $stats_m_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  player bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0',
-  deaths bigint(20) NOT NULL default '0',
-  murders bigint(20) NOT NULL default '0',
-  suicides bigint(20) NOT NULL default '0',
-  knifings bigint(20) NOT NULL default '0',
-  sniper_kills bigint(20) NOT NULL default '0',
-  headshots bigint(20) NOT NULL default '0',
-  medic_saves bigint(20) NOT NULL default '0',
-  revives bigint(20) NOT NULL default '0',
-  pspattempts bigint(20) NOT NULL default '0',
-  psptakeovers bigint(20) NOT NULL default '0',
-  doublekills bigint(20) NOT NULL default '0',
-  score_1 bigint(20) NOT NULL default '0',
-  score_2 bigint(20) NOT NULL default '0',
-  score_3 bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  games bigint(20) NOT NULL default '0',
-  wins bigint(20) NOT NULL default '0',
-  draws bigint(20) NOT NULL default '0',
-  server bigint(20) NOT NULL default '0',
-  game_type varchar(64) NOT NULL default '',
-  last_played datetime NOT NULL default '0000-00-00 00:00:00',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `player` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `deaths` bigint(20) NOT NULL DEFAULT '0',
+  `murders` bigint(20) NOT NULL DEFAULT '0',
+  `suicides` bigint(20) NOT NULL DEFAULT '0',
+  `knifings` bigint(20) NOT NULL DEFAULT '0',
+  `sniper_kills` bigint(20) NOT NULL DEFAULT '0',
+  `headshots` bigint(20) NOT NULL DEFAULT '0',
+  `medic_saves` bigint(20) NOT NULL DEFAULT '0',
+  `revives` bigint(20) NOT NULL DEFAULT '0',
+  `pspattempts` bigint(20) NOT NULL DEFAULT '0',
+  `psptakeovers` bigint(20) NOT NULL DEFAULT '0',
+  `doublekills` bigint(20) NOT NULL DEFAULT '0',
+  `score_1` bigint(20) NOT NULL DEFAULT '0',
+  `score_2` bigint(20) NOT NULL DEFAULT '0',
+  `score_3` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0',
+  `games` bigint(20) NOT NULL DEFAULT '0',
+  `wins` bigint(20) NOT NULL DEFAULT '0',
+  `draws` bigint(20) NOT NULL DEFAULT '0',
+  `server` bigint(20) NOT NULL DEFAULT '0',
+  `game_type` varchar(64) NOT NULL DEFAULT '',
+  `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$stats_m_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $weaponstats_m_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  record bigint(20) NOT NULL default '0',
-  weapon bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0',
-  shots bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `record` bigint(20) NOT NULL DEFAULT '0',
+  `weapon` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `shots` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$weaponstats_m_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $maps_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  name varchar(128) NOT NULL default '',
-  image varchar(64) NOT NULL default '',
-  thumbnail varchar(64) NOT NULL default '',
-  file varchar(128) NOT NULL default '',
-  hosted bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  game_type varchar(64) NOT NULL default '',
-  last_played datetime NOT NULL default '0000-00-00 00:00:00',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `image` varchar(64) NOT NULL DEFAULT '',
+  `thumbnail` varchar(64) NOT NULL DEFAULT '',
+  `file` varchar(128) NOT NULL DEFAULT '',
+  `hosted` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0',
+  `game_type` varchar(64) NOT NULL DEFAULT '',
+  `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$maps_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $mapstats_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  record bigint(20) NOT NULL default '0',
-  map bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0',
-  deaths bigint(20) NOT NULL default '0',
-  score bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `record` bigint(20) NOT NULL DEFAULT '0',
+  `map` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `deaths` bigint(20) NOT NULL DEFAULT '0',
+  `score` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 DBQuery("INSERT INTO $maps_table VALUES (NULL, '".base64_encode("Crude City Conflict")."', 'maps/crudecityconflict_big.jpg', 'maps/crudecityconflict_thumb.jpg', 0,  0,  0,  'Deathmatch', '0000-00-00 00:00:00');");
 DBQuery("INSERT INTO $maps_table VALUES (NULL, '".base64_encode("Tequila Sunset")."',      'maps/tequilasunset_big.jpg',     'maps/tequilasunset_thumb.jpg',     0,  0,  0,  'Deathmatch', '0000-00-00 00:00:00');");
@@ -424,15 +426,15 @@ DBQuery("INSERT INTO $maps_table VALUES (NULL, '".base64_encode("Frantic Traffic
 echo "Table '$mapstats_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $monthawards_table (
-  id bigint(20) NOT NULL default '0',
-  monthaward varchar(64) NOT NULL default '',
-  player varchar(64) NOT NULL default '',
-  value decimal(20,2) NOT NULL default '0.00',
-  month_gained char(3) NOT NULL default '',
-  year_gained varchar(64) NOT NULL default '',
-  date datetime NOT NULL default '0000-00-00 00:00:00',
-  KEY id (id)
-);");
+  `id` bigint(20) NOT NULL DEFAULT '0',
+  `monthaward` varchar(64) NOT NULL DEFAULT '',
+  `player` varchar(64) NOT NULL DEFAULT '',
+  `value` decimal(20,2) NOT NULL DEFAULT '0.00',
+  `month_gained` char(3) NOT NULL DEFAULT '',
+  `year_gained` varchar(64) NOT NULL DEFAULT '',
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 DBQuery("INSERT INTO $monthawards_table VALUES (1, 'Most MOTM Awards Gained', '', 0.00, '', 'Alltime', '0000-00-00 00:00:00');");
 DBQuery("INSERT INTO $monthawards_table VALUES (2, 'Highest Rating Pts', '', 0.00, '', 'Alltime', '0000-00-00 00:00:00');");
@@ -452,39 +454,41 @@ DBQuery("INSERT INTO $monthawards_table VALUES (13, 'Highest Support Gun Accurac
 echo "Table '$monthawards_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $playerawards_table (
-  id bigint(20) NOT NULL auto_increment,
-  player bigint(20) NOT NULL default '0',
-  award varchar(64) NOT NULL default '',
-  date datetime NOT NULL default '0000-00-00 00:00:00',
-  UNIQUE KEY award (award,player),
-  KEY id (id)
-);");
+  `id` bigint(20) NOT NULL DEFAULT '0',
+  `monthaward` varchar(64) NOT NULL DEFAULT '',
+  `player` varchar(64) NOT NULL DEFAULT '',
+  `value` decimal(20,2) NOT NULL DEFAULT '0.00',
+  `month_gained` char(3) NOT NULL DEFAULT '',
+  `year_gained` varchar(64) NOT NULL DEFAULT '',
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$playerawards_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $players_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  name varchar(64) NOT NULL default '',
-  squad bigint(20) NOT NULL default '0',
-  rating bigint(20) NOT NULL default '0',
-  m_rating bigint(20) NOT NULL default '0',
-  awards bigint(20) NOT NULL default '0',
-  wpn_awards bigint(20) NOT NULL default '0',
-  motm bigint(20) NOT NULL default '0',
-  dm_value bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `squad` bigint(20) NOT NULL DEFAULT '0',
+  `rating` bigint(20) NOT NULL DEFAULT '0',
+  `m_rating` bigint(20) NOT NULL DEFAULT '0',
+  `awards` bigint(20) NOT NULL DEFAULT '0',
+  `wpn_awards` bigint(20) NOT NULL DEFAULT '0',
+  `motm` bigint(20) NOT NULL DEFAULT '0',
+  `dm_value` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$players_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $ranks_table (
-  id bigint(20) NOT NULL auto_increment,
-  name varchar(64) NOT NULL default '',
-  image varchar(64) NOT NULL default '',
-  thumbnail varchar(64) NOT NULL default '0',
-  rating bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) NOT NULL,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `image` varchar(64) NOT NULL DEFAULT '',
+  `thumbnail` varchar(64) NOT NULL DEFAULT '0',
+  `rating` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 DBQuery("INSERT INTO $ranks_table VALUES (1, 'Private 4th', 'ranks/1.gif', 'ranks/thumbs/1.gif', 0);");
 DBQuery("INSERT INTO $ranks_table VALUES (2, 'Private 3rd', 'ranks/2.gif', 'ranks/thumbs/2.gif', 40);");
@@ -515,167 +519,424 @@ DBQuery("INSERT INTO $ranks_table VALUES (43, 'Chief of State', 'ranks/25.gif', 
 echo "Table '$ranks_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $playerips_table (
-  id bigint(20) NOT NULL auto_increment,
-  player bigint(20) NOT NULL,
-  ip_address varchar(16) NOT NULL,
-  last_recorded datetime NOT NULL,
-  KEY id (id)
-)");
+  `id` bigint(20) NOT NULL,
+  `player` bigint(20) NOT NULL,
+  `ip_address` varchar(16) NOT NULL,
+  `last_recorded` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$playerips_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $serverhistory_table (
-  id bigint(20) NOT NULL auto_increment,
-  serverid bigint(20) NOT NULL default '0',
-  players bigint(20) NOT NULL default '0',
-  name varchar(64) NOT NULL default '',
-  date date NOT NULL default '0000-00-00',
-  KEY id (id)
-);");
+  `id` bigint(20) NOT NULL,
+  `serverid` bigint(20) NOT NULL DEFAULT '0',
+  `players` bigint(20) NOT NULL DEFAULT '0',
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `date` date NOT NULL DEFAULT '0000-00-00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$serverhistory_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $servers_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  name varchar(64) NOT NULL default '',
-  serverid varchar(64) NOT NULL default '',
-  server_name varchar(128) NOT NULL default '',
-  map_name varchar(128) NOT NULL default '',
-  game_type varchar(64) NOT NULL default '',
-  game varchar(64) NOT NULL default '',
-  dedicated varchar(32) NOT NULL default '',
-  time bigint(20) NOT NULL default '0',
-  player_names text NOT NULL,
-  player_teams text NOT NULL,
-  player_weapons text NOT NULL,
-  info text NOT NULL,
-  ip varchar(64) NOT NULL default '',
-  max_players bigint(20) NOT NULL default '0',
-  num_players bigint(20) NOT NULL default '0',
-  age bigint(20) NOT NULL default '0',
-  KEY id (id,name)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(64) NOT NULL DEFAULT '',
+  `serverid` varchar(64) NOT NULL DEFAULT '',
+  `server_name` varchar(128) NOT NULL DEFAULT '',
+  `map_name` varchar(128) NOT NULL DEFAULT '',
+  `game_type` varchar(64) NOT NULL DEFAULT '',
+  `game` varchar(64) NOT NULL DEFAULT '',
+  `dedicated` varchar(32) NOT NULL DEFAULT '',
+  `time` bigint(20) NOT NULL DEFAULT '0',
+  `player_names` text NOT NULL,
+  `player_teams` text NOT NULL,
+  `player_weapons` text NOT NULL,
+  `info` text NOT NULL,
+  `ip` varchar(64) NOT NULL DEFAULT '',
+  `max_players` bigint(20) NOT NULL DEFAULT '0',
+  `num_players` bigint(20) NOT NULL DEFAULT '0',
+  `age` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$servers_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $serverstats_table (
-  id bigint(20) NOT NULL auto_increment,
-  serverid bigint(20) NOT NULL default '0',
-  game_type varchar(64) NOT NULL default '0',
-  games bigint(20) NOT NULL default '0',
-  maps bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) NOT NULL,
+  `serverid` bigint(20) NOT NULL DEFAULT '0',
+  `game_type` varchar(64) NOT NULL DEFAULT '0',
+  `games` bigint(20) NOT NULL DEFAULT '0',
+  `maps` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$serverstats_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $squads_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  name varchar(128) NOT NULL default '',
-  tag varchar(64) NOT NULL default '',
-  url varchar(255) NOT NULL default '',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `tag` varchar(64) NOT NULL DEFAULT '',
+  `url` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$squads_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $stats_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  player bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0',
-  deaths bigint(20) NOT NULL default '0',
-  murders bigint(20) NOT NULL default '0',
-  suicides bigint(20) NOT NULL default '0',
-  knifings bigint(20) NOT NULL default '0',
-  sniper_kills bigint(20) NOT NULL default '0',
-  headshots bigint(20) NOT NULL default '0',
-  medic_saves bigint(20) NOT NULL default '0',
-  revives bigint(20) NOT NULL default '0',
-  pspattempts bigint(20) NOT NULL default '0',
-  psptakeovers bigint(20) NOT NULL default '0',
-  doublekills bigint(20) NOT NULL default '0',
-  score_1 bigint(20) NOT NULL default '0',
-  score_2 bigint(20) NOT NULL default '0',
-  score_3 bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  games bigint(20) NOT NULL default '0',
-  wins bigint(20) NOT NULL default '0',
-  draws bigint(20) NOT NULL default '0',
-  server bigint(20) NOT NULL default '0',
-  game_type varchar(64) NOT NULL default '',
-  last_played datetime NOT NULL default '0000-00-00 00:00:00',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `player` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `deaths` bigint(20) NOT NULL DEFAULT '0',
+  `murders` bigint(20) NOT NULL DEFAULT '0',
+  `suicides` bigint(20) NOT NULL DEFAULT '0',
+  `knifings` bigint(20) NOT NULL DEFAULT '0',
+  `sniper_kills` bigint(20) NOT NULL DEFAULT '0',
+  `headshots` bigint(20) NOT NULL DEFAULT '0',
+  `medic_saves` bigint(20) NOT NULL DEFAULT '0',
+  `revives` bigint(20) NOT NULL DEFAULT '0',
+  `pspattempts` bigint(20) NOT NULL DEFAULT '0',
+  `psptakeovers` bigint(20) NOT NULL DEFAULT '0',
+  `doublekills` bigint(20) NOT NULL DEFAULT '0',
+  `score_1` bigint(20) NOT NULL DEFAULT '0',
+  `score_2` bigint(20) NOT NULL DEFAULT '0',
+  `score_3` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0',
+  `games` bigint(20) NOT NULL DEFAULT '0',
+  `wins` bigint(20) NOT NULL DEFAULT '0',
+  `draws` bigint(20) NOT NULL DEFAULT '0',
+  `server` bigint(20) NOT NULL DEFAULT '0',
+  `game_type` varchar(64) NOT NULL DEFAULT '',
+  `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$stats_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $games_table (
-  id bigint(20) NOT NULL auto_increment,
-  map_id bigint(20) NOT NULL,
-  winner tinyint(1) NOT NULL,
-  server bigint(20) NOT NULL,
-  game_type varchar(64) NOT NULL,
-  date_played datetime NOT NULL,
-  KEY id (id)
-)");
+  `id` bigint(20) NOT NULL,
+  `map_id` bigint(20) NOT NULL,
+  `winner` tinyint(1) NOT NULL,
+  `server` bigint(20) NOT NULL,
+  `game_type` varchar(64) NOT NULL,
+  `date_played` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 
 echo "Table '$games_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $playergames_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  game_id bigint(20) NOT NULL,
-  player bigint(20) NOT NULL default '0',
-  playerip varchar(15) NOT NULL,
-  experience bigint(20) NOT NULL,
-  stats varchar(128) NOT NULL default '0',
-  team tinyint(1) NOT NULL,
-  wpns text NOT NULL,
-  KEY id (id)
-)");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `game_id` bigint(20) NOT NULL,
+  `player` bigint(20) NOT NULL DEFAULT '0',
+  `playerip` varchar(15) NOT NULL,
+  `experience` bigint(20) NOT NULL,
+  `stats` varchar(128) NOT NULL DEFAULT '0',
+  `team` tinyint(1) NOT NULL,
+  `wpns` text NOT NULL,
+  `date_played` varchar(94) NOT NULL,
+  `result` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$playergames_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $weapons_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  name varchar(64) NOT NULL default '',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(64) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$weapons_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $weaponstats_table (
-  id bigint(20) unsigned NOT NULL auto_increment,
-  record bigint(20) NOT NULL default '0',
-  weapon bigint(20) NOT NULL default '0',
-  kills bigint(20) NOT NULL default '0',
-  shots bigint(20) NOT NULL default '0',
-  time bigint(20) NOT NULL default '0',
-  KEY id (id)
-);");
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `record` bigint(20) NOT NULL DEFAULT '0',
+  `weapon` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `shots` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+");
 
 echo "Table '$weaponstats_table' created successfully<br>\n";
 
-@mysql_query("ALTER TABLE ".$tablepre."_players DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_stats DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_m_stats DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_maps DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_mapstats DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_m_mapstats DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_weapons DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_weaponstats DROP PRIMARY KEY;");
-@mysql_query("ALTER TABLE ".$tablepre."_m_weaponstats DROP PRIMARY KEY;");
 
-DBQuery("ALTER TABLE ".$tablepre."_players ADD PRIMARY KEY (id);");
-DBQuery("ALTER TABLE ".$tablepre."_stats ADD PRIMARY KEY (player, server, game_type);");
-//DBQuery("ALTER TABLE ".$tablepre."_m_stats ADD PRIMARY KEY (player, server, game_type);");
-DBQuery("ALTER TABLE ".$tablepre."_maps ADD PRIMARY KEY (id);");
-DBQuery("ALTER TABLE ".$tablepre."_mapstats ADD PRIMARY KEY (record, map);");
-DBQuery("ALTER TABLE ".$tablepre."_m_mapstats ADD PRIMARY KEY (record, map);");
-DBQuery("ALTER TABLE ".$tablepre."_weapons ADD PRIMARY KEY (id);");
-DBQuery("ALTER TABLE ".$tablepre."_weaponstats ADD PRIMARY KEY (record, weapon);");
-DBQuery("ALTER TABLE ".$tablepre."_m_weaponstats ADD PRIMARY KEY (record, weapon);");
+echo "Updating Database to latest version...";
+DBQuery("
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `chronos_aliases`
+--
+ALTER TABLE `chronos_aliases`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_awards`
+--
+ALTER TABLE `chronos_awards`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_games`
+--
+ALTER TABLE `chronos_games`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_maps`
+--
+ALTER TABLE `chronos_maps`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_mapstats`
+--
+ALTER TABLE `chronos_mapstats`
+  ADD PRIMARY KEY (`record`,`map`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_monthawards`
+--
+ALTER TABLE `chronos_monthawards`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_m_mapstats`
+--
+ALTER TABLE `chronos_m_mapstats`
+  ADD PRIMARY KEY (`record`,`map`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_m_stats`
+--
+ALTER TABLE `chronos_m_stats`
+  ADD PRIMARY KEY (`player`,`server`,`game_type`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_m_weaponstats`
+--
+ALTER TABLE `chronos_m_weaponstats`
+  ADD PRIMARY KEY (`record`,`weapon`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_playerawards`
+--
+ALTER TABLE `chronos_playerawards`
+  ADD UNIQUE KEY `award` (`award`,`player`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_playergames`
+--
+ALTER TABLE `chronos_playergames`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_playerips`
+--
+ALTER TABLE `chronos_playerips`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_players`
+--
+ALTER TABLE `chronos_players`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_ranks`
+--
+ALTER TABLE `chronos_ranks`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_serverhistory`
+--
+ALTER TABLE `chronos_serverhistory`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_servers`
+--
+ALTER TABLE `chronos_servers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`,`name`);
+
+--
+-- Indexes for table `chronos_serverstats`
+--
+ALTER TABLE `chronos_serverstats`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_squads`
+--
+ALTER TABLE `chronos_squads`
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_stats`
+--
+ALTER TABLE `chronos_stats`
+  ADD PRIMARY KEY (`player`,`server`,`game_type`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_weapons`
+--
+ALTER TABLE `chronos_weapons`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `chronos_weaponstats`
+--
+ALTER TABLE `chronos_weaponstats`
+  ADD PRIMARY KEY (`record`,`weapon`),
+  ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `chronos_aliases`
+--
+ALTER TABLE `chronos_aliases`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `chronos_awards`
+--
+ALTER TABLE `chronos_awards`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+--
+-- AUTO_INCREMENT for table `chronos_games`
+--
+ALTER TABLE `chronos_games`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `chronos_maps`
+--
+ALTER TABLE `chronos_maps`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+--
+-- AUTO_INCREMENT for table `chronos_mapstats`
+--
+ALTER TABLE `chronos_mapstats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20149;
+--
+-- AUTO_INCREMENT for table `chronos_m_mapstats`
+--
+ALTER TABLE `chronos_m_mapstats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18052;
+--
+-- AUTO_INCREMENT for table `chronos_m_stats`
+--
+ALTER TABLE `chronos_m_stats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2489;
+--
+-- AUTO_INCREMENT for table `chronos_m_weaponstats`
+--
+ALTER TABLE `chronos_m_weaponstats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11526;
+--
+-- AUTO_INCREMENT for table `chronos_playerawards`
+--
+ALTER TABLE `chronos_playerawards`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4262;
+--
+-- AUTO_INCREMENT for table `chronos_playergames`
+--
+ALTER TABLE `chronos_playergames`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `chronos_playerips`
+--
+ALTER TABLE `chronos_playerips`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `chronos_players`
+--
+ALTER TABLE `chronos_players`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1887;
+--
+-- AUTO_INCREMENT for table `chronos_ranks`
+--
+ALTER TABLE `chronos_ranks`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+--
+-- AUTO_INCREMENT for table `chronos_serverhistory`
+--
+ALTER TABLE `chronos_serverhistory`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20779;
+--
+-- AUTO_INCREMENT for table `chronos_servers`
+--
+ALTER TABLE `chronos_servers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `chronos_serverstats`
+--
+ALTER TABLE `chronos_serverstats`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `chronos_squads`
+--
+ALTER TABLE `chronos_squads`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `chronos_stats`
+--
+ALTER TABLE `chronos_stats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1897;
+--
+-- AUTO_INCREMENT for table `chronos_weapons`
+--
+ALTER TABLE `chronos_weapons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+--
+-- AUTO_INCREMENT for table `chronos_weaponstats`
+--
+ALTER TABLE `chronos_weaponstats`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11415;COMMIT;
+
+
+");
+
+
+
+
+// @mysql_query("ALTER TABLE ".$tablepre."_players DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_stats DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_m_stats DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_maps DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_mapstats DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_m_mapstats DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_weapons DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_weaponstats DROP PRIMARY KEY;");
+// @mysql_query("ALTER TABLE ".$tablepre."_m_weaponstats DROP PRIMARY KEY;");
+
+// DBQuery("ALTER TABLE ".$tablepre."_players ADD PRIMARY KEY (id);");
+// DBQuery("ALTER TABLE ".$tablepre."_stats ADD PRIMARY KEY (player, server, game_type);");
+DBQuery("ALTER TABLE ".$tablepre."_m_stats ADD PRIMARY KEY (player, server, game_type);");
+// DBQuery("ALTER TABLE ".$tablepre."_maps ADD PRIMARY KEY (id);");
+// DBQuery("ALTER TABLE ".$tablepre."_mapstats ADD PRIMARY KEY (record, map);");
+// DBQuery("ALTER TABLE ".$tablepre."_m_mapstats ADD PRIMARY KEY (record, map);");
+// DBQuery("ALTER TABLE ".$tablepre."_weapons ADD PRIMARY KEY (id);");
+// DBQuery("ALTER TABLE ".$tablepre."_weaponstats ADD PRIMARY KEY (record, weapon);");
+// DBQuery("ALTER TABLE ".$tablepre."_m_weaponstats ADD PRIMARY KEY (record, weapon);");
 
 echo "Database optimized successfully<br />\n";
 
