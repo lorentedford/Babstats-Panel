@@ -2,6 +2,7 @@
 
 
 # ChangeLog
+	* Updated Copyright
 	* Fixed Installer for newer versions of MySQL versions
 	* Fixed Admin Functions for newer MySQL Versions
 	* Fixed PHP from "short-hand" to "long-hand"
