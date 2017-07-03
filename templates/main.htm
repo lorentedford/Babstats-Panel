@@ -1,0 +1,321 @@
+<!-- 'MAIN' TEMPLATE                        -->
+<!-- AUTHOR : Tomas Stucinskas a.k.a Baboon -->
+<!-- EMAIL  : baboon@ai-hq.com              -->
+
+
+<html>
+  <head>
+    <meta http-equiv=Content-Type content=text/html; charset={charset}>
+    <title>{website_title} - BHD Stats</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <style TYPE="text/css">
+      .pagetitle {
+        font-weight : bold;
+        font-size: 20px;
+        font-family : Tahoma, Verdana, Arial;
+        color: #DDDDDD;
+      }
+
+      .header {
+        background-color : #996633;
+        font-weight : bold;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        color: #DDDDDD;
+      }
+
+      .text {
+        font-weight : normal;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        color: #CCCCCC;
+      }
+
+      .multipage {
+        font-weight : normal;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        color: #BBBBBB;
+      }
+
+      .main {
+        background-color : #606060;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : justify;
+        color: #CCCCCC;
+      }
+
+      .tablerow1 {
+        background-color : #404040;
+        font-weight : normal;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : left;
+        color: #EEEEEE;
+      }
+     
+      .tablerow2 {
+        background-color : #303030;
+        font-weight : normal;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : left;
+        color: #EEEEEE;
+      }
+	  
+	  .tablerow3 {  
+		border-left:thin solid #555555;
+		text-align : right;
+      }
+	  
+	  .tablerow4 {  
+		border-left:thin solid #555555;
+		text-align : left;
+      }
+
+      .tableheader {
+        background-color : #505050;
+        font-weight : bold;
+        font-size: 10px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : left;
+        color: #EEEEEE;
+      }
+
+      .selectedasc {
+        background-color : #505050;
+        font-weight : bold;
+        font-size: 10px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : left;
+        color: #EEEEEE;
+      }
+
+      .selecteddesc {
+        background-color : #505050;
+        font-weight : bold;
+        font-size: 10px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : left;
+        color: #EEEEEE;
+      }
+
+      .unselected {
+        background-color : #505050;
+        font-weight : bold;
+        font-size: 10px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : left;
+        color: #EEEEEE;
+      }
+
+      .title {
+        font-weight : bold;
+        font-size: 12px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : center;
+        color: #EEEEEE;
+      }
+
+      .navigation {
+        background-color : #303030;
+        font-weight : bold;
+        font-size: 10px;
+        font-family : Tahoma, Verdana, Arial;
+        color: #DDDDDD;
+      }
+
+      .playermedals {
+        font-weight : normal;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        text-align : center;
+        color: #CCCCCC;
+      }
+
+      .blue {color: #1796CB;}
+      .red {color: #E3553C;}
+	  .orange {color: #FF6600;}
+	  .orange2 {color: #FFD200;}
+      .yellow {color: yellow;}
+      .violet {color: violet;}
+      .green {color: #44DD44;}
+      .none {color: #44DD44;}
+
+      body {
+        background-color: #000000;
+        scrollbar-3d-light-color : #000000;
+        scrollbar-arrow-color : #DDDDDD;
+        scrollbar-base-color : #DDDDDD;
+        scrollbar-dark-shadow-color : #000000;
+        scrollbar-face-color : #000000;
+        scrollbar-highlight-color : #000000;
+        scrollbar-shadow-color : #DDDDDD;
+      }
+
+      .navigation a:link{color: #EEAA50; text-decoration:none;}
+      .navigation a:visited {color: #EEAA50; text-decoration:none;}
+      .navigation a:hover{color: #FFBB60; text-decoration:underline;}
+	  .tableheader a:link{color: #EEAA50; text-decoration:none;}
+      .tableheader a:visited {color: #EEAA50; text-decoration:none;}
+      .tableheader a:hover{color: #FFBB60; text-decoration:underline;}
+	  .header a:link{color: #EEAA50; text-decoration:none;}
+      .header a:visited {color: #EEAA50; text-decoration:none;}
+      .header a:hover{color: #FFBB60; text-decoration:underline;}
+	  .main a:link{color: #EEAA50; text-decoration:none;}
+      .main a:visited {color: #EEAA50; text-decoration:none;}
+      .main a:hover{color: #FFBB60; text-decoration:underline;}
+
+      input, option, textarea, select {
+        color : silver;
+        background-color : #404040;
+        font-size: 11px;
+        font-family : Tahoma, Verdana, Arial;
+        border-top : 1px solid Silver;
+        border-left : 1px solid Silver;
+        border-right : 1px solid Silver;
+        border-bottom : 1px solid Silver;
+      }
+      
+      hr {
+        color : #000000;
+        height : 1;
+      }
+    </style>
+  </head>
+  
+  <script type="text/javascript" language="JavaScript">
+  function resubmit(pID) {
+	myString = new String(window.location);
+	if(myString.search("&pid") == -1) {
+		window.location = window.location + '&pid=' + pID + '#' + pID
+	} else {
+		splitString = myString.split("&pid");
+		splitString2 = myString.split("&pid=");
+		splitString3 = splitString2[1].split("#");
+		if(splitString3[0] == pID) {
+			vID=0;
+		} else {
+			vID=pID;
+		} 
+		window.location = splitString[0] + '&pid=' + vID + '#' + pID
+	}
+	
+  }
+  </script>
+  
+  <body>
+
+    <table border="3" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+      <tr>
+        <td width="100%">
+        <div align="center">
+          <center>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="4" style="border-collapse: collapse" height="97">
+      <tr class="header">
+        <td align="left" width="230" rowspan="2" style="background-color: #000000" background="templates/bg.jpg">
+        <p align="center">&nbsp;&nbsp;<a href="{mainscript}action=start"><font class="pagetitle">{website_title}</font></a></td>
+        <td align="left" valign="middle" width="154" rowspan="2" style="background-color: #000000">
+        <table class="header" width="152" style="border-collapse: collapse; background-color: #000000" cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td align="right" width="152">Stats &raquo;<b>
+			  <a href="{mainscript}action=kill_stats">Kill/Death Stats</a> ::<br>
+			  <a href="{mainscript}action=game_stats">Game Stats</a> ::<br>
+              <a href="{mainscript}action=goal_stats">Goal Stats</a> ::<br>
+              <a href="{mainscript}action=weapon_stats">Weapon Stats</a> ::<br>
+              <a href="{mainscript}action=squad_stats">Squad Stats</a> ::<br>
+              <a href="{mainscript}action=map_stats">Map Stats</a> ::<br>
+              <a href="{mainscript}action=compare_stats">Compare Stats</a> ::<br>
+			  <a href="{monthlyscript}action=kill_stats">Monthly Stats</a> ::<br>
+              <a href="{mainscript}action=month_awards">Monthly Awards</a> :: </b>
+		    </td>
+		  </tr>
+		</table>
+		</td>
+        <td align="right" valign="top" colspan="3" width="487" style="background-color: #000000">
+          Overall Stats<br>
+          <form method="post" action="{mainscript}action=search">
+            <p>Search Player&nbsp;
+            <input type="text" name="playername" size="21" maxlength="40" style="color: silver; font-size: 11px; font-family: Tahoma, Verdana, Arial; border: 1px solid Silver; background-color: #404040">
+            <input type="submit" name="submit" value="Search" style="color: silver; font-size: 11px; font-family: Tahoma, Verdana, Arial; border: 1px solid Silver; background-color: #404040">
+            </p>
+          </form>
+        </td>
+      </tr>
+      <tr class="header">
+        <td align="center" width="306" style="background-color: #000000">
+          </td>
+        <td align="right" valign="bottom" width="164" style="background-color: #000000">
+          <table class="header" style="border-collapse: collapse; background-color: #000000" cellpadding="0" cellspacing="0">
+		    <tr>
+			  <td align="right">
+		         <a href="admin.php">Admin</a> ::<br />
+                 <a href="{mainscript}action=servers">Servers</a> ::<br>
+                 <a href="{mainscript}action=ranks">Ranks</a> ::<br>
+                 <a href="{mainscript}action=awards">Awards</a> ::<br>
+                 <a href="{mainscript}action=faq">FAQ</a> ::
+		      </td>
+			</tr>
+		  </table>
+		</td>
+        <td align="right" valign="bottom" width="4" style="background-color: #000000">&nbsp;
+          </td>
+      </tr>
+    </table>
+
+          </center>
+        </div>
+        <div align="center">
+          <center>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="2" style="border-collapse: collapse" height="3">
+      <tr class="navigation">
+        <td align="left" height="4" width="200">
+          <p align="right">
+          </td>
+      </tr>
+    </table>
+
+          </center>
+        </div>
+        <div align="center">
+          <center>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="4" style="border-collapse: collapse">
+      <tr class="main">
+        <td valign="top" align="center" style="background-color: #000000" background="templates/bg.jpg">
+          <br>
+          {content}
+          <br>
+        </td>
+      </tr>
+    </table>
+
+          </center>
+        </div>
+        <div align="center">
+          <center>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="2" style="border-collapse: collapse">
+      <tr class="navigation">
+        <td align="left" width="86%">
+          Powered by Bab.stats ::
+          <a target="_blank" href="http://www.babstats.com/">Neos.Chronos</a> ::
+          Version {version} ::
+        </td>
+        <td align="right" width="114%">
+          <a href="{mainscript}action=about">About Babstats</a> :.</td>
+      </tr>
+    </table>
+          </center>
+        </div>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>
+
+<div style="visibility:hidden; font-size:xx-small;">templates/main.htm 1.0.0</div>

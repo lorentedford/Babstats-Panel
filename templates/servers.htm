@@ -1,0 +1,196 @@
+<!-- TEMPLATE     : 'SERVERS'                       -->
+<!-- AUTHOR       : Tomas Stucinskas a.k.a Baboon   -->
+<!-- EMAIL        : baboon@ai-hq.com                -->
+<!-- Modified by  : Peter Jones a.k.a »TÐÖ« Ãzràél  -->
+<!-- EMAIL        : azrael@tdosquad.co.uk           -->
+<!-- WEBSITE      : http://www.tdosquad.co.uk       -->
+<!-- FINALIZED    : 13th May 2005                   -->
+
+<!-- MAIN BLOCK - SERVER LISTING --> 
+<block name="main">
+  <p class="title">Servers</p>
+  <table border="0" cellspacing="0" cellpadding="3">
+    <tr class="tableheader">
+      <td width="100">Server</td>
+      <td width="100">Game Name</td>
+      <td width="120">Map Name</td>
+      <td width="80">Game Type</td>
+      <td width="50">Players</td>
+      <td width="65">Dedicated</td>
+      <td width="80">Game</td>
+    </tr>
+    <loop name="servers">
+    <tr class="{servers.class}">
+      <td valign="middle"><img src="{base}templates/{servers.status}.gif" border="0">&nbsp;<a href="{mainscript}action=servers&id={servers.id}">{servers.name}</a></td>
+        <td>{servers.server_name}</td>
+        <td>{servers.map_name}</td>
+        <td>{servers.game_type}</td>
+        <td>{servers.players}</td>
+        <td>{servers.dedicated}</td>
+        <td>{servers.game}</td>
+    </tr>
+    </loop name="servers">
+  </table>
+</block name="main">
+
+<!-- SERVER INFO -->
+<block name="server_info">
+  <p class="title">Servers - {name}</p>
+  
+  
+  <table width="545">
+    <tr>
+      <td colspan="3" class="tableheader"><div align="center">Server Stats</div></td>
+    </tr>
+    <tr>
+      <td valign="top" width="195"><div align="left">
+        <table width="100%">
+	      <tr>
+            <td colspan="2" class="tableheader"><div align="center">Overall</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Total Uptime:</td>
+            <td class="tablerow1">{uptime}</td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Games Hosted:</td>
+            <td class="tablerow1">{games}</td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Total Players:</td>
+            <td class="tablerow1">{total_players}</td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Total Kills:</td>
+            <td class="tablerow1">{kills}</td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Last Active:</td>
+            <td class="tablerow1">{last_active}</td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Total Maps:</td>
+            <td class="tablerow1">{maps}</td>
+          </tr>
+        </table>
+      </div></td>
+      <td valign="top"><div align="center">
+        <table width="100%" >
+          <tr>
+            <td  colspan="2" class="tableheader"><div align="center">Gametypes</div></td>
+          </tr>
+          <tr>
+            <td  class="tablerow2" width="70%">DM Games:</td>
+            <td  class="tablerow1" width="30%"><div align="right">{Deathmatch}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">TDM Games:</td>
+            <td class="tablerow1"><div align="right">{Team Deathmatch}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">TKOTH Games:</td>
+            <td class="tablerow1"><div align="right">{Team King of the Hill} </div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">CTF Games:</td>
+            <td class="tablerow1"><div align="right">{Capture the Flag} </div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">FB Games:</td>
+            <td class="tablerow1"><div align="right">{Flagball}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">S&amp;D Games:</td>
+            <td class="tablerow1"><div align="right">{Search and Destroy} </div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">A&amp;D Games:</td>
+            <td class="tablerow1"><div align="right">{Attack and Defend} </div></td>
+          </tr>
+        </table>
+      </div></td>
+      <td width="160" valign="top"><div align="right">
+        <table width="100%" >
+          <tr>
+            <td colspan="2" class="tableheader"><div align="center">Player Logins </div></td>
+          </tr>
+          <tr>
+            <td width="59%" class="tablerow2">Today:</td>
+            <td width="41%" class="tablerow2"><div align="right">{todays}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Yesterday:</td>
+            <td class="tablerow2"><div align="right">{yesterdays}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow1">This Week:</td>
+            <td class="tablerow1"><div align="right">{this_week}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow1">Last Week:</td>
+            <td class="tablerow1"><div align="right">{last_week}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">This Month:</td>
+            <td class="tablerow2"><div align="right">{this_month}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow2">Last Month:</td>
+            <td class="tablerow2"><div align="right">{last_month}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow1">This Year:</td>
+            <td class="tablerow1"><div align="right">{this_year}</div></td>
+          </tr>
+          <tr>
+            <td class="tablerow1">Last Year:</td>
+            <td class="tablerow1"><div align="right">{last_year}</div></td>
+          </tr>
+              </table>
+      </div></td>
+    </tr>
+  </table>
+  <br>
+  
+  <table border="0" cellspacing="0" cellpadding="7" width="545">
+    <tr>
+      <td valign="top" align="left">
+      
+        <table width="100%">
+          <tr class="tableheader"><td colspan="2">{name}</td></tr>
+          <tr class="tablerow1"><td width="100">Game Name</td><td width="140">{server_name}</td></tr>
+          <tr class="tablerow1">
+            <td>Map Age </td>
+            <td>{age}</td>
+          </tr>
+          <tr class="tablerow2"><td>Map Name</td><td>{map_name}</td></tr>
+          <tr class="tablerow1"><td>Game Type</td><td>{game_type}</td></tr>
+          <tr class="tablerow2"><td>Players</td><td>{players}</td></tr>
+          <tr class="tablerow1"><td>Dedicated</td><td>{dedicated}</td></tr>
+          <tr class="tablerow2"><td>Game</td><td>{game}</td></tr>
+		  <tr class="tablerow2"><td>Status</td><td>{sstatus}</td></tr>
+        </table>
+        
+        <br>
+        {map_image}
+      </td>
+      <td valign="top" align="right">
+      
+        <table border="0" cellspacing="0" cellpadding="3" width="300">
+          <tr class="tableheader">
+            <td colspan="2">Players</td>
+          </tr>
+          <loop name="players">
+            <tr class="{players.class}" height="30">
+              <td width="140" valign="middle" align="center">{players.weapon_image}</td>
+              <td width="130"><font class="{players.team}"><b>{players.name}</b></font></td>
+            </tr>
+          </loop name="players">
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+</block name="server_info">
+
+<div style="visibility:hidden; font-size:xx-small;">templates/servers.htm 1.0.0</div>
