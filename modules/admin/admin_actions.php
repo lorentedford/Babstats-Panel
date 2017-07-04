@@ -288,7 +288,7 @@ if($_POST['edit_selected_servers']) {
 }
 
 if($_POST['add_server']) {
-  $sql = DBQuery("INSERT INTO $servers_table VALUES (NULL, '$add_name', '$add_serverid', '', '', '', '', '', '', '', '', '', '', '', '', '', '')");
+  $sql = DBQuery("INSERT INTO $servers_table VALUES (NULL, '$add_name', '$add_serverid', '', '', '', '', '', 0, '', '', '', '', '', 0, 0, 0)");
 }
 /* END OF SERVERS ADMIN FUNCTIONS*/
 

@@ -40,14 +40,12 @@ DBQuery("CREATE TABLE $aliases_table (
   `id` bigint(20) UNSIGNED NOT NULL,
   `from_name` varchar(64) NOT NULL DEFAULT '',
   `to_name` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$aliases_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$aliases_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;");
 
-ALTER TABLE `$aliases_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$aliases_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-");
 
 echo "Table '$aliases_table' created successfully<br>\n";
 
@@ -59,15 +57,11 @@ DBQuery("CREATE TABLE $awards_table (
   `value` bigint(20) NOT NULL DEFAULT '0',
   `description` text NOT NULL,
   `type` enum('A','W') NOT NULL DEFAULT 'A'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$awards_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$awards_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$awards_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$awards_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;");
 
 echo "Updating to latest version...";
 DBQuery("
@@ -148,7 +142,7 @@ INSERT INTO `$awards_table` (`id`, `name`, `image`, `field`, `value`, `descripti
 (74, 'Claymore Award', 'awards/clay.gif', 'claymore_kills', 250, 'Given for  250 claymore kills', 'W');
 ");
 
-echo "Update good... proceeding...";
+echo "Update looks good... proceeding...";
 echo "Table '$awards_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE `$hof_table` (
@@ -180,13 +174,10 @@ DBQuery("CREATE TABLE $mapstats_m_table (
   `deaths` bigint(20) NOT NULL DEFAULT '0',
   `score` bigint(20) NOT NULL DEFAULT '0',
   `time` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$mapstats_m_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$mapstats_m_table`
   ADD PRIMARY KEY (`record`,`map`),
-  ADD KEY `id` (`id`);
-
-");
+  ADD KEY `id` (`id`);");
 
 echo "Table '$mapstats_m_table' created successfully<br>\n";
 
@@ -215,16 +206,12 @@ DBQuery("CREATE TABLE $stats_m_table (
   `server` bigint(20) NOT NULL DEFAULT '0',
   `game_type` varchar(64) NOT NULL DEFAULT '',
   `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$stats_m_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$stats_m_table`
   ADD PRIMARY KEY (`player`,`server`,`game_type`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$stats_m_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18052;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$stats_m_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18052;");
 
 echo "Table '$stats_m_table' created successfully<br>\n";
 
@@ -235,16 +222,12 @@ DBQuery("CREATE TABLE $weaponstats_m_table (
   `kills` bigint(20) NOT NULL DEFAULT '0',
   `shots` bigint(20) NOT NULL DEFAULT '0',
   `time` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$weaponstats_m_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$weaponstats_m_table`
   ADD PRIMARY KEY (`record`,`weapon`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$weaponstats_m_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11526;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$weaponstats_m_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11526;");
 
 echo "Table '$weaponstats_m_table' created successfully<br>\n";
 
@@ -258,40 +241,29 @@ DBQuery("CREATE TABLE $maps_table (
   `time` bigint(20) NOT NULL DEFAULT '0',
   `game_type` varchar(64) NOT NULL DEFAULT '',
   `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$maps_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$maps_table`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$maps_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
-
-  
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$maps_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;");
 
 echo "Table '$maps_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $mapstats_table (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(128) NOT NULL DEFAULT '',
-  `image` varchar(64) NOT NULL DEFAULT '',
-  `thumbnail` varchar(64) NOT NULL DEFAULT '',
-  `file` varchar(128) NOT NULL DEFAULT '',
-  `hosted` bigint(20) NOT NULL DEFAULT '0',
-  `time` bigint(20) NOT NULL DEFAULT '0',
-  `game_type` varchar(64) NOT NULL DEFAULT '',
-  `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$mapstats_table`
+  `record` bigint(20) NOT NULL DEFAULT '0',
+  `map` bigint(20) NOT NULL DEFAULT '0',
+  `kills` bigint(20) NOT NULL DEFAULT '0',
+  `deaths` bigint(20) NOT NULL DEFAULT '0',
+  `score` bigint(20) NOT NULL DEFAULT '0',
+  `time` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$mapstats_table`
   ADD PRIMARY KEY (`record`,`map`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$mapstats_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20149;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$mapstats_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20149;");
 
 DBQuery("INSERT INTO $maps_table VALUES (NULL, '".base64_encode("Crude City Conflict")."', 'maps/crudecityconflict_big.jpg', 'maps/crudecityconflict_thumb.jpg', 0,  0,  0,  'Deathmatch', '0000-00-00 00:00:00');");
 DBQuery("INSERT INTO $maps_table VALUES (NULL, '".base64_encode("Tequila Sunset")."',      'maps/tequilasunset_big.jpg',     'maps/tequilasunset_thumb.jpg',     0,  0,  0,  'Deathmatch', '0000-00-00 00:00:00');");
@@ -491,11 +463,9 @@ DBQuery("CREATE TABLE $monthawards_table (
   `month_gained` char(3) NOT NULL DEFAULT '',
   `year_gained` varchar(64) NOT NULL DEFAULT '',
   `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$monthawards_table`
-  ADD KEY `id` (`id`);
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$monthawards_table`
+  ADD KEY `id` (`id`);");
 
 DBQuery("INSERT INTO $monthawards_table VALUES (1, 'Most MOTM Awards Gained', '', 0.00, '', 'Alltime', '0000-00-00 00:00:00');");
 DBQuery("INSERT INTO $monthawards_table VALUES (2, 'Highest Rating Pts', '', 0.00, '', 'Alltime', '0000-00-00 00:00:00');");
@@ -515,23 +485,16 @@ DBQuery("INSERT INTO $monthawards_table VALUES (13, 'Highest Support Gun Accurac
 echo "Table '$monthawards_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $playerawards_table (
-  `id` bigint(20) NOT NULL DEFAULT '0',
-  `monthaward` varchar(64) NOT NULL DEFAULT '',
-  `player` varchar(64) NOT NULL DEFAULT '',
-  `value` decimal(20,2) NOT NULL DEFAULT '0.00',
-  `month_gained` char(3) NOT NULL DEFAULT '',
-  `year_gained` varchar(64) NOT NULL DEFAULT '',
+  `id` bigint(20) NOT NULL,
+  `player` bigint(20) NOT NULL DEFAULT '0',
+  `award` varchar(64) NOT NULL DEFAULT '',
   `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$playerawards_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$playerawards_table`
   ADD UNIQUE KEY `award` (`award`,`player`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$playerawards_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4262;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$playerawards_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4262;");
 
 echo "Table '$playerawards_table' created successfully<br>\n";
 
@@ -545,16 +508,12 @@ DBQuery("CREATE TABLE $players_table (
   `wpn_awards` bigint(20) NOT NULL DEFAULT '0',
   `motm` bigint(20) NOT NULL DEFAULT '0',
   `dm_value` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$players_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$players_table`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$players_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1887;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$players_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1887;");
 
 echo "Table '$players_table' created successfully<br>\n";
 
@@ -564,15 +523,11 @@ DBQuery("CREATE TABLE $ranks_table (
   `image` varchar(64) NOT NULL DEFAULT '',
   `thumbnail` varchar(64) NOT NULL DEFAULT '0',
   `rating` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$ranks_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$ranks_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$ranks_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$ranks_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;");
 
 DBQuery("INSERT INTO $ranks_table VALUES (1, 'Private 4th', 'ranks/1.gif', 'ranks/thumbs/1.gif', 0);");
 DBQuery("INSERT INTO $ranks_table VALUES (2, 'Private 3rd', 'ranks/2.gif', 'ranks/thumbs/2.gif', 40);");
@@ -607,15 +562,11 @@ DBQuery("CREATE TABLE $playerips_table (
   `player` bigint(20) NOT NULL,
   `ip_address` varchar(16) NOT NULL,
   `last_recorded` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$playerips_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$playerips_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$playerips_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$playerips_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;");
 
 echo "Table '$playerips_table' created successfully<br>\n";
 
@@ -625,15 +576,11 @@ DBQuery("CREATE TABLE $serverhistory_table (
   `players` bigint(20) NOT NULL DEFAULT '0',
   `name` varchar(64) NOT NULL DEFAULT '',
   `date` date NOT NULL DEFAULT '0000-00-00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$serverhistory_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$serverhistory_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20779;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$serverhistory_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$serverhistory_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20779;");
 
 echo "Table '$serverhistory_table' created successfully<br>\n";
 
@@ -655,17 +602,12 @@ DBQuery("CREATE TABLE $servers_table (
   `max_players` bigint(20) NOT NULL DEFAULT '0',
   `num_players` bigint(20) NOT NULL DEFAULT '0',
   `age` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$servers_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$servers_table`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`,`name`);
-
-ALTER TABLE `$servers_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
-
-");
+  ADD KEY `id` (`id`,`name`);");
+DBQuery("ALTER TABLE `$servers_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;");
 
 echo "Table '$servers_table' created successfully<br>\n";
 
@@ -676,15 +618,11 @@ DBQuery("CREATE TABLE $serverstats_table (
   `games` bigint(20) NOT NULL DEFAULT '0',
   `maps` bigint(20) NOT NULL DEFAULT '0',
   `time` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$serverstats_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$serverstats_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$serverstats_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$serverstats_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;");
 
 echo "Table '$serverstats_table' created successfully<br>\n";
 
@@ -693,14 +631,11 @@ DBQuery("CREATE TABLE $squads_table (
   `name` varchar(128) NOT NULL DEFAULT '',
   `tag` varchar(64) NOT NULL DEFAULT '',
   `url` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$squads_table`
-  ADD KEY `id` (`id`);
-ALTER TABLE `$squads_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-  
-  ");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$squads_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$squads_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;");
 
 echo "Table '$squads_table' created successfully<br>\n";
 
@@ -729,16 +664,12 @@ DBQuery("CREATE TABLE $stats_table (
   `server` bigint(20) NOT NULL DEFAULT '0',
   `game_type` varchar(64) NOT NULL DEFAULT '',
   `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$stats_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$stats_table`
   ADD PRIMARY KEY (`player`,`server`,`game_type`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$stats_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1897;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$stats_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1897;");
 
 echo "Table '$stats_table' created successfully<br>\n";
 
@@ -749,15 +680,11 @@ DBQuery("CREATE TABLE $games_table (
   `server` bigint(20) NOT NULL,
   `game_type` varchar(64) NOT NULL,
   `date_played` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$games_table`
-  ADD KEY `id` (`id`);
-  
-  ALTER TABLE `$games_table`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$games_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$games_table`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;");
 
 
 echo "Table '$games_table' created successfully<br>\n";
@@ -773,31 +700,23 @@ DBQuery("CREATE TABLE $playergames_table (
   `wpns` text NOT NULL,
   `date_played` varchar(94) NOT NULL,
   `result` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$playergames_table`
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$playergames_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
-");
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$playergames_table`
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$playergames_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;");
 
 echo "Table '$playergames_table' created successfully<br>\n";
 
 DBQuery("CREATE TABLE $weapons_table (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$weapons_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$weapons_table`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
-  
-ALTER TABLE `$weapons_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$weapons_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;");
 
 echo "Table '$weapons_table' created successfully<br>\n";
 
@@ -808,16 +727,12 @@ DBQuery("CREATE TABLE $weaponstats_table (
   `kills` bigint(20) NOT NULL DEFAULT '0',
   `shots` bigint(20) NOT NULL DEFAULT '0',
   `time` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-ALTER TABLE `$weaponstats_table`
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+DBQuery("ALTER TABLE `$weaponstats_table`
   ADD PRIMARY KEY (`record`,`weapon`),
-  ADD KEY `id` (`id`);
-  
-  ALTER TABLE `$weaponstats_table`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11415;COMMIT;
-
-");
+  ADD KEY `id` (`id`);");
+DBQuery("ALTER TABLE `$weaponstats_table`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11415;");
 
 echo "Table '$weaponstats_table' created successfully<br>\n";
 
@@ -838,7 +753,7 @@ echo "Table '$weaponstats_table' created successfully<br>\n";
 
 // DBQuery("ALTER TABLE ".$tablepre."_players ADD PRIMARY KEY (id);");
 // DBQuery("ALTER TABLE ".$tablepre."_stats ADD PRIMARY KEY (player, server, game_type);");
-DBQuery("ALTER TABLE ".$tablepre."_m_stats ADD PRIMARY KEY (player, server, game_type);");
+//// DBQuery("ALTER TABLE ".$tablepre."_m_stats ADD PRIMARY KEY (player, server, game_type);");
 // DBQuery("ALTER TABLE ".$tablepre."_maps ADD PRIMARY KEY (id);");
 // DBQuery("ALTER TABLE ".$tablepre."_mapstats ADD PRIMARY KEY (record, map);");
 // DBQuery("ALTER TABLE ".$tablepre."_m_mapstats ADD PRIMARY KEY (record, map);");

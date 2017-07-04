@@ -5,6 +5,7 @@
 *todo....*
 
 # ChangeLog
+	* Updated Admin Functions to work with new scheme
 	* Fixed PHP queries to match missing information
 	* Updated Database to fit missing information
 	* Updated Copyright
