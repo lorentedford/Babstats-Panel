@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 03, 2017 at 04:54 PM
+-- Generation Time: Jul 03, 2017 at 08:08 PM
 -- Server version: 5.7.18-log
 -- PHP Version: 5.5.38
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `usa_stats`
+-- Database: `vow_stats`
 --
 
 -- --------------------------------------------------------
@@ -145,24 +145,6 @@ CREATE TABLE `chronos_games` (
   `date_played` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_games`
---
-
-INSERT INTO `chronos_games` (`id`, `map_id`, `winner`, `server`, `game_type`, `date_played`) VALUES
-(1, 288, 0, 0, 'Deathmatch', '2017-07-03 14:12:04'),
-(2, 289, 0, 0, 'Deathmatch', '2017-07-03 14:44:21'),
-(3, 290, 0, 0, 'Deathmatch', '2017-07-03 15:47:10'),
-(4, 291, 0, 7, 'Deathmatch', '2017-07-03 15:55:29'),
-(5, 292, 0, 7, 'Deathmatch', '2017-07-03 16:04:13'),
-(6, 293, 0, 7, 'Deathmatch', '2017-07-03 16:10:51'),
-(7, 294, 0, 7, 'Deathmatch', '2017-07-03 16:18:29'),
-(8, 295, 0, 7, 'Deathmatch', '2017-07-03 16:37:09'),
-(9, 296, 0, 7, 'Deathmatch', '2017-07-03 16:55:50'),
-(10, 297, 0, 7, 'Deathmatch', '2017-07-03 17:14:32'),
-(11, 298, 0, 7, 'Deathmatch', '2017-07-03 17:33:13'),
-(12, 299, 0, 7, 'Deathmatch', '2017-07-03 17:51:55');
-
 -- --------------------------------------------------------
 
 --
@@ -208,24 +190,6 @@ CREATE TABLE `chronos_maps` (
   `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_maps`
---
-
-INSERT INTO `chronos_maps` (`id`, `name`, `image`, `thumbnail`, `file`, `hosted`, `time`, `game_type`, `last_played`) VALUES
-(299, 'TW91c2Vob2xlcw==', '', '', '', 1, 1080, 'Deathmatch', '2017-07-03 17:51:55'),
-(298, 'TWVhbiBTdHJlZXRzIEMgYnkgV1JlY0tMZVNT', '', '', '', 1, 1080, 'Deathmatch', '2017-07-03 17:33:13'),
-(297, 'S2lwJ3MgR3JhdmV5YXJkIA==', '', '', '', 1, 1080, 'Deathmatch', '2017-07-03 17:14:32'),
-(296, 'SG9vayBIb29u', '', '', '', 1, 1080, 'Deathmatch', '2017-07-03 16:55:50'),
-(295, 'SGlnaFdpcmU=', '', '', '', 1, 1081, 'Deathmatch', '2017-07-03 16:37:09'),
-(294, 'KkRSVCogRGVTU2ltOHRvUiA9REFZPQ==', '', '', '', 1, 412, 'Deathmatch', '2017-07-03 16:18:29'),
-(292, 'Q29ucXVlcmVkIENvbW1hbmQ=', '', '', '', 1, 479, 'Deathmatch', '2017-07-03 16:04:13'),
-(293, 'REVTRVJUIFNUT1JN', '', '', '', 1, 353, 'Deathmatch', '2017-07-03 16:10:51'),
-(291, 'QmxhY2toYXdrIGRvd24=', '', '', '', 1, 454, 'Deathmatch', '2017-07-03 15:55:29'),
-(290, 'UGFraXN0YW5pIFN0YWRpdW0=', '', '', '', 1, 225, 'Deathmatch', '2017-07-03 15:47:10'),
-(289, 'Qm9hc3V4eCBIaWRlb3V0IGJ5IFNodWdoYXJ0', '', '', '', 1, 110, 'Deathmatch', '2017-07-03 14:44:21'),
-(288, 'Q0lUWSBVTkRFUiBTRUlHRQ==', '', '', '', 1, 872, 'Deathmatch', '2017-07-03 14:12:04');
-
 -- --------------------------------------------------------
 
 --
@@ -241,30 +205,6 @@ CREATE TABLE `chronos_mapstats` (
   `score` bigint(20) NOT NULL DEFAULT '0',
   `time` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `chronos_mapstats`
---
-
-INSERT INTO `chronos_mapstats` (`id`, `record`, `map`, `kills`, `deaths`, `score`, `time`) VALUES
-(20148, 1896, 299, 1, 1, 16, 359),
-(20147, 1895, 299, 2, 7, 30, 1040),
-(20146, 1893, 299, 9, 7, 85, 1041),
-(20145, 1890, 299, 6, 7, 57, 1040),
-(20144, 1895, 298, 2, 2, 24, 741),
-(20143, 1894, 298, 2, 2, 25, 1008),
-(20142, 1893, 298, 3, 1, 39, 1008),
-(20141, 1890, 298, 1, 5, 10, 1008),
-(20140, 1890, 297, 0, 0, 0, 0),
-(20139, 1890, 296, 0, 0, 0, 0),
-(20138, 1890, 295, 0, 0, 0, 0),
-(20137, 1890, 294, 0, 0, 0, 0),
-(20136, 1890, 293, 0, 0, 0, 0),
-(20135, 1892, 292, 1, 0, 10, 229),
-(20134, 1891, 292, 2, 3, 29, 443),
-(20133, 1890, 292, 1, 2, 13, 444),
-(20132, 1891, 291, 1, 1, 13, 407),
-(20131, 1890, 291, 1, 2, 14, 407);
 
 -- --------------------------------------------------------
 
@@ -297,30 +237,6 @@ CREATE TABLE `chronos_m_mapstats` (
   `score` bigint(20) NOT NULL DEFAULT '0',
   `time` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `chronos_m_mapstats`
---
-
-INSERT INTO `chronos_m_mapstats` (`id`, `record`, `map`, `kills`, `deaths`, `score`, `time`) VALUES
-(18051, 1896, 299, 1, 1, 16, 359),
-(18050, 1895, 299, 2, 7, 30, 1040),
-(18049, 1893, 299, 9, 7, 85, 1041),
-(18048, 1890, 299, 6, 7, 57, 1040),
-(18047, 1895, 298, 2, 2, 24, 741),
-(18046, 1894, 298, 2, 2, 25, 1008),
-(18045, 1893, 298, 3, 1, 39, 1008),
-(18044, 1890, 298, 1, 5, 10, 1008),
-(18043, 1890, 297, 0, 0, 0, 0),
-(18042, 1890, 296, 0, 0, 0, 0),
-(18041, 1890, 295, 0, 0, 0, 0),
-(18040, 1890, 294, 0, 0, 0, 0),
-(18039, 1890, 293, 0, 0, 0, 0),
-(18038, 1892, 292, 1, 0, 10, 229),
-(18037, 1891, 292, 2, 3, 29, 443),
-(18036, 1890, 292, 1, 2, 13, 444),
-(18035, 1891, 291, 1, 1, 13, 407),
-(18034, 1890, 291, 1, 2, 14, 407);
 
 -- --------------------------------------------------------
 
@@ -355,18 +271,6 @@ CREATE TABLE `chronos_m_stats` (
   `last_played` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_m_stats`
---
-
-INSERT INTO `chronos_m_stats` (`id`, `player`, `kills`, `deaths`, `murders`, `suicides`, `knifings`, `sniper_kills`, `headshots`, `medic_saves`, `revives`, `pspattempts`, `psptakeovers`, `doublekills`, `score_1`, `score_2`, `score_3`, `time`, `games`, `wins`, `draws`, `server`, `game_type`, `last_played`) VALUES
-(2488, 1886, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 16, 0, 0, 359, 1, 0, 0, 7, 'Deathmatch', '2017-07-03 17:51:55'),
-(2487, 1885, 4, 9, 0, 2, 1, 2, 1, 0, 0, 0, 0, 0, 54, 0, 0, 1781, 2, 0, 0, 7, 'Deathmatch', '2017-07-03 17:51:55'),
-(2486, 1884, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 25, 0, 0, 1008, 1, 0, 0, 7, 'Deathmatch', '2017-07-03 17:33:13'),
-(2483, 1881, 3, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 42, 0, 0, 850, 2, 1, 0, 7, 'Deathmatch', '2017-07-03 16:04:13'),
-(2484, 1882, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 229, 1, 0, 0, 7, 'Deathmatch', '2017-07-03 16:04:13'),
-(2485, 1883, 12, 8, 0, 2, 0, 8, 2, 0, 0, 0, 0, 0, 124, 0, 0, 2049, 2, 0, 0, 7, 'Deathmatch', '2017-07-03 17:51:55'),
-(2482, 1880, 12, 25, 0, 3, 0, 7, 4, 0, 0, 0, 0, 0, 125, 0, 0, 6489, 9, 3, 0, 7, 'Deathmatch', '2017-07-03 17:51:55');
 
 -- --------------------------------------------------------
 
@@ -383,48 +287,6 @@ CREATE TABLE `chronos_m_weaponstats` (
   `time` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_m_weaponstats`
---
-
-INSERT INTO `chronos_m_weaponstats` (`id`, `record`, `weapon`, `kills`, `shots`, `time`) VALUES
-(11525, 1896, 103, 0, 8, 29),
-(11524, 1896, 101, 0, 1, 20),
-(11523, 1896, 94, 1, 4, 114),
-(11522, 1896, 93, 0, 0, 137),
-(11521, 1896, 98, 0, 0, 11),
-(11520, 1896, 108, 0, 19, 48),
-(11519, 1895, 101, 0, 4, 85),
-(11518, 1895, 103, 0, 6, 292),
-(11517, 1895, 98, 1, 2, 32),
-(11516, 1893, 107, 1, 21, 10),
-(11515, 1893, 95, 5, 17, 457),
-(11514, 1893, 97, 2, 45, 84),
-(11513, 1893, 98, 0, 1, 22),
-(11512, 1895, 106, 2, 6, 927),
-(11511, 1895, 93, 0, 0, 292),
-(11510, 1895, 96, 0, 4, 80),
-(11509, 1895, 105, 1, 1, 73),
-(11508, 1894, 104, 2, 1821, 580),
-(11507, 1894, 95, 0, 0, 65),
-(11506, 1894, 93, 0, 0, 363),
-(11505, 1893, 96, 1, 7, 250),
-(11504, 1893, 103, 0, 21, 13),
-(11503, 1893, 101, 0, 15, 254),
-(11502, 1893, 94, 3, 85, 953),
-(11501, 1890, 104, 0, 179, 115),
-(11500, 1890, 103, 1, 35, 125),
-(11499, 1890, 102, 1, 16, 159),
-(11498, 1890, 101, 0, 8, 165),
-(11497, 1892, 99, 1, 3, 93),
-(11496, 1892, 93, 0, 0, 135),
-(11495, 1892, 100, 0, 0, 1),
-(11494, 1890, 98, 0, 42, 788),
-(11493, 1891, 95, 3, 14, 834),
-(11492, 1891, 98, 0, 0, 16),
-(11491, 1890, 94, 7, 27, 1096),
-(11490, 1890, 93, 0, 0, 451);
-
 -- --------------------------------------------------------
 
 --
@@ -437,17 +299,6 @@ CREATE TABLE `chronos_playerawards` (
   `award` varchar(64) NOT NULL DEFAULT '',
   `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `chronos_playerawards`
---
-
-INSERT INTO `chronos_playerawards` (`id`, `player`, `award`, `date`) VALUES
-(4261, 1885, 'Army Commendation Medal', '2017-07-03 16:35:45'),
-(4260, 1883, 'Army Commendation Medal', '2017-07-03 16:35:45'),
-(4259, 1880, 'Army Commendation Medal with 1 bronze Oak leaf Cluster', '2017-07-03 16:00:41'),
-(4258, 1881, 'Army Commendation Medal', '2017-07-03 15:20:36'),
-(4257, 1880, 'Army Commendation Medal', '2017-07-03 16:10:51');
 
 -- --------------------------------------------------------
 
@@ -468,33 +319,6 @@ CREATE TABLE `chronos_playergames` (
   `result` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_playergames`
---
-
-INSERT INTO `chronos_playergames` (`id`, `game_id`, `player`, `playerip`, `experience`, `stats`, `team`, `wpns`, `date_played`, `result`) VALUES
-(1, 1, 1872, '74.194.223.222', 19, '1_0_0_0_0_1_0_0_0_0_0_19_0_0_812', 5, 'CAR15_756_0_0\nBarrett .50 Cal_56_1_13\n', '', ''),
-(2, 1, 1873, '68.13.196.137', 0, '0_2_0_1_0_0_0_0_0_0_0_0_0_0_812', 5, 'M21_689_0_0\nFrag Grenade_123_0_2\n', '', ''),
-(3, 1, 1874, '50.81.235.40', 0, '0_0_0_0_0_0_0_0_0_0_0_0_0_0_200', 5, 'CAR15_137_0_0\nM9 Beretta_63_0_0\n', '', ''),
-(4, 1, 1875, '178.143.106.169', 0, '0_0_0_0_0_0_0_0_0_0_0_0_0_0_34', 5, 'CAR15_34_0_0\n', '', ''),
-(5, 2, 1876, '74.194.223.222', 13, '1_2_0_0_0_0_0_0_0_0_0_13_0_0_1274', 5, 'CAR15_154_0_0\n', '', ''),
-(6, 2, 1877, '68.13.196.137', 25, '2_1_0_0_0_0_0_0_0_0_0_25_0_0_1273', 5, 'Knife_0_0_0\nCAR15_133_0_0\nM21_21_1_10\n', '', ''),
-(7, 3, 1878, '74.194.223.222', 0, '0_1_0_0_0_0_0_0_0_0_0_0_0_0_127', 5, 'CAR15/M203 - Grenade_57_0_1\nCAR15_53_0_0\nKnife_17_0_5\n', '', ''),
-(8, 3, 1879, '68.13.196.137', 5, '1_0_0_0_0_0_0_0_0_0_0_5_0_0_124', 5, 'Knife_2_0_0\nCAR15_107_0_0\nM21_15_1_1\n', '', ''),
-(9, 4, 1880, '74.194.223.222', 14, '1_2_0_1_0_1_0_0_0_0_0_14_0_0_407', 5, 'CAR15_103_0_0\nBarrett .50 Cal_304_1_3\n', '', ''),
-(10, 4, 1881, '68.13.196.137', 13, '1_1_0_0_0_0_0_0_0_0_0_13_0_0_407', 5, 'Knife_3_0_0\nM21_404_1_8\n', '', ''),
-(11, 5, 1880, '74.194.223.222', 13, '1_2_0_0_0_0_0_0_0_0_0_13_0_0_444', 5, 'Barrett .50 Cal_134_1_4\nCAR15_261_0_0\nKnife_49_0_4\n', '', ''),
-(12, 5, 1881, '68.13.196.137', 29, '2_3_0_0_0_0_0_0_0_0_0_29_0_0_443', 5, 'Knife_13_0_0\nM21_430_2_6\n', '', ''),
-(13, 5, 1882, '80.2.36.156', 10, '1_0_0_0_0_0_0_0_0_0_0_10_0_0_229', 5, 'M60_1_0_0\nCAR15_135_0_0\nCAR15/M203 - Grenade_93_1_3\n', '', ''),
-(14, 11, 1880, '74.194.223.222', 10, '1_5_0_1_0_1_0_0_0_0_0_10_0_0_1008', 5, 'Knife_460_0_18\nCAR15_20_0_0\nBarrett .50 Cal_149_0_13\nClaymore_63_0_2\nMiniGun_159_1_16\nColt .45_42_0_21\n50 Cal Humvee_115_0_179\n', '0000-00-00 00:00:00', ''),
-(15, 11, 1883, '2.7.165.230', 39, '3_1_0_1_0_0_0_0_0_0_0_39_0_0_1008', 5, 'Barrett .50 Cal_921_3_85\nClaymore_55_0_3\nColt .45_13_0_21\nFrag Grenade_19_0_2\n', '0000-00-00 00:00:00', ''),
-(16, 11, 1884, '68.50.244.13', 25, '2_2_0_0_0_2_0_0_0_0_0_25_0_0_1008', 5, 'CAR15_363_0_0\nM21_65_0_0\n50 Cal Humvee_580_2_1821\n', '0000-00-00 00:00:00', ''),
-(17, 11, 1885, '73.118.107.191', 24, '2_2_0_0_0_0_0_0_0_0_0_24_0_0_741', 5, 'AT4_73_1_1\nFrag Grenade_1_0_0\nCAR15_292_0_0\nMCRT .300 Tactical_375_1_1\n', '0000-00-00 00:00:00', ''),
-(18, 12, 1880, '74.194.223.222', 57, '6_7_0_1_0_1_0_0_0_0_0_57_0_0_1040', 5, 'Knife_279_0_20\nCAR15_67_0_0\nColt .45_83_1_14\nClaymore_102_0_6\nBarrett .50 Cal_509_5_7\n', '0000-00-00 00:00:00', '0'),
-(19, 12, 1883, '2.7.165.230', 85, '9_7_0_1_0_2_0_0_0_0_0_85_0_0_1041', 5, 'Knife_22_0_1\nBarrett .50 Cal_32_0_0\nM9 Beretta_84_2_45\nFrag Grenade_231_1_5\nM21_457_5_17\nClaymore_199_0_12\n50 Cal Truck_10_1_21\n', '0000-00-00 00:00:00', '0'),
-(20, 12, 1885, '73.118.107.191', 30, '2_7_0_2_1_1_0_0_0_0_0_30_0_0_1040', 5, 'MCRT .300 Tactical_552_1_5\nKnife_32_1_2\nColt .45_292_0_6\nClaymore_85_0_4\nFrag Grenade_79_0_4\n', '0000-00-00 00:00:00', '0'),
-(21, 12, 1886, '23.120.102.228', 16, '1_1_0_0_0_1_0_0_0_0_0_16_0_0_359', 5, 'CAR15/M203_48_0_19\nKnife_11_0_0\nCAR15_137_0_0\nBarrett .50 Cal_114_1_4\nClaymore_20_0_1\nColt .45_29_0_8\n', '0000-00-00 00:00:00', '0');
-
 -- --------------------------------------------------------
 
 --
@@ -507,27 +331,6 @@ CREATE TABLE `chronos_playerips` (
   `ip_address` varchar(16) NOT NULL,
   `last_recorded` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `chronos_playerips`
---
-
-INSERT INTO `chronos_playerips` (`id`, `player`, `ip_address`, `last_recorded`) VALUES
-(1, 1872, '74.194.223.222', '2017-07-03 17:51:55'),
-(2, 1873, '68.13.196.137', '2017-07-03 17:51:55'),
-(3, 1874, '50.81.235.40', '2017-07-03 17:51:55'),
-(4, 1875, '178.143.106.169', '2017-07-03 17:51:55'),
-(5, 1876, '74.194.223.222', '2017-07-03 17:51:55'),
-(6, 1877, '68.13.196.137', '2017-07-03 17:51:55'),
-(7, 1878, '74.194.223.222', '2017-07-03 17:51:55'),
-(8, 1879, '68.13.196.137', '2017-07-03 17:51:55'),
-(9, 1880, '74.194.223.222', '2017-07-03 17:51:55'),
-(10, 1881, '68.13.196.137', '2017-07-03 17:51:55'),
-(11, 1882, '80.2.36.156', '2017-07-03 17:51:55'),
-(12, 1883, '2.7.165.230', '2017-07-03 17:51:55'),
-(13, 1884, '68.50.244.13', '2017-07-03 17:51:55'),
-(14, 1885, '73.118.107.191', '2017-07-03 17:51:55'),
-(15, 1886, '23.120.102.228', '2017-07-03 17:51:55');
 
 -- --------------------------------------------------------
 
@@ -547,18 +350,6 @@ CREATE TABLE `chronos_players` (
   `dm_value` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_players`
---
-
-INSERT INTO `chronos_players` (`id`, `name`, `squad`, `rating`, `m_rating`, `awards`, `wpn_awards`, `motm`, `dm_value`) VALUES
-(1886, 'Q29sb25lbCBLaWNrQXp6', -1, 2, 2, 0, 0, 0, 0),
-(1885, 'RVpIYW1tZXI=', -1, 6, 6, 1, 0, 0, 0),
-(1884, 'UGluUGluIFB1YQ==', -1, 5, 5, 0, 0, 0, 0),
-(1883, 'S0lTUyBNRQ==', -1, 17, 17, 1, 0, 0, 0),
-(1881, 'STRDVURFQUQ=', -1, 3, 3, 1, 0, 0, 0),
-(1882, 'Z29yYnk0Nw==', -1, 1, 1, 0, 0, 0, 0),
-(1880, 'fENUU3wgU2t5V2Fsa2Vy', -1, 10, 10, 2, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -619,30 +410,6 @@ CREATE TABLE `chronos_serverhistory` (
   `date` date NOT NULL DEFAULT '0000-00-00'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `chronos_serverhistory`
---
-
-INSERT INTO `chronos_serverhistory` (`id`, `serverid`, `players`, `name`, `date`) VALUES
-(20778, 7, 0, 'Q29sb25lbCBLaWNrQXp6', '2017-07-03'),
-(20777, 7, 0, 'RVpIYW1tZXI=', '2017-07-03'),
-(20776, 7, 0, 'S0lTUyBNRQ==', '2017-07-03'),
-(20775, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20774, 7, 0, 'RVpIYW1tZXI=', '2017-07-03'),
-(20773, 7, 0, 'UGluUGluIFB1YQ==', '2017-07-03'),
-(20772, 7, 0, 'S0lTUyBNRQ==', '2017-07-03'),
-(20771, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20770, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20769, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20768, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20767, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20766, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20765, 7, 0, 'Z29yYnk0Nw==', '2017-07-03'),
-(20764, 7, 0, 'STRDVURFQUQ=', '2017-07-03'),
-(20763, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03'),
-(20762, 7, 0, 'STRDVURFQUQ=', '2017-07-03'),
-(20761, 7, 0, 'fENUU3wgU2t5V2Fsa2Vy', '2017-07-03');
-
 -- --------------------------------------------------------
 
 --
@@ -674,7 +441,7 @@ CREATE TABLE `chronos_servers` (
 --
 
 INSERT INTO `chronos_servers` (`id`, `name`, `serverid`, `server_name`, `map_name`, `game_type`, `game`, `dedicated`, `time`, `player_names`, `player_teams`, `player_weapons`, `info`, `ip`, `max_players`, `num_players`, `age`) VALUES
-(7, 'USA Snipers', 'TGM123', 'VVNBIFNuaXBlcnM=', 'T3NtYW4gT3R0byBHZWVyYXNrIA==', 'Deathmatch', 'Black Hawk Down', 'Yes', 1499122465, 'fENUU3wgU2t5V2Fsa2Vy\nS0lTUyBNRQ==\nRVpIYW1tZXI=', 'None\nNone\nNone', 'Barrett .50 Cal\nClaymore\nMCRT .300 Tactical', '', '0.0.0.0', 32, 3, 100);
+(7, 'TGMNetworks, LLC.', 'TGM123', 'VmV0ZXJhbnMgb2YgV2Fy', 'PGNvNDA0MEZGPkNyYXNoIFNpdGUgQTxjbz4=', 'Team King of the Hill', 'Black Hawk Down', 'Yes', 1499134099, '', '', '', '', '0.0.0.0', 50, 0, -2);
 
 -- --------------------------------------------------------
 
@@ -696,7 +463,8 @@ CREATE TABLE `chronos_serverstats` (
 --
 
 INSERT INTO `chronos_serverstats` (`id`, `serverid`, `game_type`, `games`, `maps`, `time`) VALUES
-(6, 7, 'Deathmatch', 9, 9, 7099);
+(6, 7, 'Deathmatch', 12, 12, 10339),
+(7, 7, 'Team King of the Hill', 1, 1, 960);
 
 -- --------------------------------------------------------
 
@@ -749,13 +517,12 @@ CREATE TABLE `chronos_stats` (
 --
 
 INSERT INTO `chronos_stats` (`id`, `player`, `kills`, `deaths`, `murders`, `suicides`, `knifings`, `sniper_kills`, `headshots`, `medic_saves`, `revives`, `pspattempts`, `psptakeovers`, `doublekills`, `score_1`, `score_2`, `score_3`, `time`, `games`, `wins`, `draws`, `server`, `game_type`, `last_played`) VALUES
-(1896, 1886, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 16, 0, 0, 359, 1, 0, 0, 7, 'Deathmatch', '2017-07-03 17:51:55'),
-(1895, 1885, 4, 9, 0, 2, 1, 2, 1, 0, 0, 0, 0, 0, 54, 0, 0, 1781, 2, 0, 0, 7, 'Deathmatch', '2017-07-03 17:51:55'),
-(1894, 1884, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 25, 0, 0, 1008, 1, 0, 0, 7, 'Deathmatch', '2017-07-03 17:33:13'),
-(1891, 1881, 3, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 42, 0, 0, 850, 2, 1, 0, 7, 'Deathmatch', '2017-07-03 16:04:13'),
-(1892, 1882, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 229, 1, 0, 0, 7, 'Deathmatch', '2017-07-03 16:04:13'),
-(1893, 1883, 12, 8, 0, 2, 0, 8, 2, 0, 0, 0, 0, 0, 124, 0, 0, 2049, 2, 0, 0, 7, 'Deathmatch', '2017-07-03 17:51:55'),
-(1890, 1880, 12, 25, 0, 3, 0, 7, 4, 0, 0, 0, 0, 0, 125, 0, 0, 6489, 9, 3, 0, 7, 'Deathmatch', '2017-07-03 17:51:55');
+(1907, 1897, 6, 1, 0, 0, 0, 0, 1, 0, 0, 3, 3, 0, 60, 2, 1, 388, 1, 1, 0, 7, 'Team King of the Hill', '2017-07-03 21:07:29'),
+(1906, 1896, 10, 6, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 605, 6, 9, 877, 1, 1, 0, 7, 'Team King of the Hill', '2017-07-03 21:07:29'),
+(1905, 1895, 8, 10, 0, 0, 0, 0, 2, 0, 0, 4, 4, 0, 160, 4, 5, 879, 1, 0, 0, 7, 'Team King of the Hill', '2017-07-03 21:07:29'),
+(1904, 1894, 3, 9, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 460, 1, 1, 864, 2, 1, 0, 7, 'Team King of the Hill', '2017-07-03 21:07:29'),
+(1903, 1893, 2, 4, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 40, 1, 0, 879, 1, 1, 0, 7, 'Team King of the Hill', '2017-07-03 21:07:29'),
+(1902, 1892, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 1, 0, 0, 7, 'Team King of the Hill', '2017-07-03 21:07:29');
 
 -- --------------------------------------------------------
 
@@ -773,6 +540,7 @@ CREATE TABLE `chronos_weapons` (
 --
 
 INSERT INTO `chronos_weapons` (`id`, `name`) VALUES
+(109, 'M24'),
 (108, 'CAR15/M203'),
 (107, '50 Cal Truck'),
 (106, 'MCRT .300 Tactical'),
@@ -788,7 +556,8 @@ INSERT INTO `chronos_weapons` (`id`, `name`) VALUES
 (96, 'Frag Grenade'),
 (95, 'M21'),
 (94, 'Barrett .50 Cal'),
-(93, 'CAR15');
+(93, 'CAR15'),
+(110, 'G3');
 
 -- --------------------------------------------------------
 
@@ -810,42 +579,25 @@ CREATE TABLE `chronos_weaponstats` (
 --
 
 INSERT INTO `chronos_weaponstats` (`id`, `record`, `weapon`, `kills`, `shots`, `time`) VALUES
-(11414, 1896, 103, 0, 8, 29),
-(11413, 1896, 101, 0, 1, 20),
-(11412, 1896, 94, 1, 4, 114),
-(11411, 1896, 93, 0, 0, 137),
-(11410, 1896, 98, 0, 0, 11),
-(11409, 1896, 108, 0, 19, 48),
-(11408, 1895, 101, 0, 4, 85),
-(11407, 1895, 103, 0, 6, 292),
-(11406, 1895, 98, 1, 2, 32),
-(11405, 1893, 107, 1, 21, 10),
-(11404, 1893, 95, 5, 17, 457),
-(11403, 1893, 97, 2, 45, 84),
-(11402, 1893, 98, 0, 1, 22),
-(11401, 1895, 106, 2, 6, 927),
-(11400, 1895, 93, 0, 0, 292),
-(11399, 1895, 96, 0, 4, 80),
-(11398, 1895, 105, 1, 1, 73),
-(11397, 1894, 104, 2, 1821, 580),
-(11396, 1894, 95, 0, 0, 65),
-(11395, 1894, 93, 0, 0, 363),
-(11394, 1893, 96, 1, 7, 250),
-(11393, 1893, 103, 0, 21, 13),
-(11392, 1893, 101, 0, 15, 254),
-(11391, 1893, 94, 3, 85, 953),
-(11390, 1890, 104, 0, 179, 115),
-(11389, 1890, 103, 1, 35, 125),
-(11388, 1890, 102, 1, 16, 159),
-(11387, 1890, 101, 0, 8, 165),
-(11386, 1892, 99, 1, 3, 93),
-(11385, 1892, 93, 0, 0, 135),
-(11384, 1892, 100, 0, 0, 1),
-(11383, 1890, 98, 0, 42, 788),
-(11382, 1891, 95, 3, 14, 834),
-(11381, 1891, 98, 0, 0, 16),
-(11380, 1890, 94, 7, 27, 1096),
-(11379, 1890, 93, 0, 0, 451);
+(11467, 1907, 101, 1, 5, 108),
+(11466, 1907, 108, 3, 35, 100),
+(11465, 1907, 96, 0, 4, 20),
+(11464, 1907, 98, 1, 0, 50),
+(11463, 1907, 99, 1, 5, 32),
+(11462, 1907, 93, 0, 0, 78),
+(11461, 1906, 96, 0, 5, 225),
+(11460, 1906, 101, 0, 9, 57),
+(11459, 1906, 110, 10, 84, 563),
+(11458, 1906, 98, 0, 0, 32),
+(11457, 1905, 101, 1, 9, 271),
+(11456, 1905, 99, 1, 8, 85),
+(11455, 1905, 108, 6, 108, 464),
+(11454, 1905, 98, 0, 0, 59),
+(11453, 1904, 100, 3, 97, 864),
+(11452, 1903, 98, 0, 26, 170),
+(11451, 1903, 108, 1, 15, 625),
+(11450, 1903, 99, 1, 2, 84),
+(11449, 1902, 110, 0, 0, 70);
 
 --
 -- Indexes for dumped tables
@@ -1006,52 +758,52 @@ ALTER TABLE `chronos_awards`
 -- AUTO_INCREMENT for table `chronos_games`
 --
 ALTER TABLE `chronos_games`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `chronos_maps`
 --
 ALTER TABLE `chronos_maps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
 --
 -- AUTO_INCREMENT for table `chronos_mapstats`
 --
 ALTER TABLE `chronos_mapstats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20149;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20177;
 --
 -- AUTO_INCREMENT for table `chronos_m_mapstats`
 --
 ALTER TABLE `chronos_m_mapstats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18052;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18080;
 --
 -- AUTO_INCREMENT for table `chronos_m_stats`
 --
 ALTER TABLE `chronos_m_stats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2489;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2500;
 --
 -- AUTO_INCREMENT for table `chronos_m_weaponstats`
 --
 ALTER TABLE `chronos_m_weaponstats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11526;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11579;
 --
 -- AUTO_INCREMENT for table `chronos_playerawards`
 --
 ALTER TABLE `chronos_playerawards`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4262;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4271;
 --
 -- AUTO_INCREMENT for table `chronos_playergames`
 --
 ALTER TABLE `chronos_playergames`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `chronos_playerips`
 --
 ALTER TABLE `chronos_playerips`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `chronos_players`
 --
 ALTER TABLE `chronos_players`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1887;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1898;
 --
 -- AUTO_INCREMENT for table `chronos_ranks`
 --
@@ -1061,7 +813,7 @@ ALTER TABLE `chronos_ranks`
 -- AUTO_INCREMENT for table `chronos_serverhistory`
 --
 ALTER TABLE `chronos_serverhistory`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20779;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20809;
 --
 -- AUTO_INCREMENT for table `chronos_servers`
 --
@@ -1071,7 +823,7 @@ ALTER TABLE `chronos_servers`
 -- AUTO_INCREMENT for table `chronos_serverstats`
 --
 ALTER TABLE `chronos_serverstats`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `chronos_squads`
 --
@@ -1081,17 +833,17 @@ ALTER TABLE `chronos_squads`
 -- AUTO_INCREMENT for table `chronos_stats`
 --
 ALTER TABLE `chronos_stats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1897;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1908;
 --
 -- AUTO_INCREMENT for table `chronos_weapons`
 --
 ALTER TABLE `chronos_weapons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 --
 -- AUTO_INCREMENT for table `chronos_weaponstats`
 --
 ALTER TABLE `chronos_weaponstats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11415;COMMIT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11468;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

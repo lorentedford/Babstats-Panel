@@ -5,6 +5,8 @@
 *todo....*
 
 # ChangeLog
+	* Uploaded an Updated SQL file
+	* Removed Installer... Proved more painful than needed.
 	* Updated Admin Functions to work with new scheme
 	* Fixed PHP queries to match missing information
 	* Updated Database to fit missing information
