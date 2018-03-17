@@ -746,7 +746,8 @@ if($_POST['repair']) {
   exit;
 }
 
-if($_POST['reset_monthly']) { 
+if($_POST['reset_monthly']) {
+$sql_check = DBQuery("SET SESSION sql_mode = '';");	
 $useDate = $_POST['radiobutton'];
 $check = DBQuery("SELECT * FROM $stats_m_table");
 $crow = DBFetchArray($check);
