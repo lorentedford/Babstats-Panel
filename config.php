@@ -42,7 +42,7 @@ $ftpInfoArr["fRoot"]   = "/public_html/";          // FTP Root Directory
 $ftpInfoArr["fServer"] = 'localhost';              // FTP Server
 //---------------------------------- FTP details ----------------------------------//
 
-$website_title = "Babstats Updated July 3rd, 2017";       // Website title
+$website_title = "Babstats Updated March 17th, 2018";       // Website title
 $charset       = "windows-1252";   // Character encoding (windows-1252 for english)
 
 $playerstoshow = 25;  // How many players/maps to show per page
